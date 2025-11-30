@@ -16,11 +16,11 @@ export function LandingPage2025() {
 
     return (
         <div>
-            {/* AR Section */}
-            <ArSection layoutMobile={layoutMobile} />
-
-            {/* Telemetry Section */}
+            {/* Telemetry Section FIRST */}
             <TelemetrySection layoutMobile={layoutMobile} />
+
+            {/* AR Section SECOND */}
+            <ArSection layoutMobile={layoutMobile} />
         </div>
     );
 }

@@ -29,6 +29,7 @@ const ArSection = ({ layoutMobile }) => {
                 <h2 className="heading-3 text-center mb-64">
                     bring the excitement of F1 right into your own space
                 </h2>
+
                 <div
                     ref={sectionRef}
                     className="flex max-sm:flex-col-reverse sm:flex-row items-center mx-auto relative"
@@ -61,38 +62,34 @@ const ArSection = ({ layoutMobile }) => {
                         >
                             {layoutMobile ? 'Full AR Experience' : '360 Team Livery Viewer and History' }
                         </Button>
-
-                        {/*
                         <p>
-                            Scan QR code to go to the full AR Experience on your mobile device
-                            <br />
+                            Scan QR code to go to the full AR Experience on your mbile device
                         </p>
                         <img
                             className="w-1/3"
-                            src={`${process.env.PUBLIC_URL + "/images/arQr.png"}`}
+                            src={`${
+                                process.env.PUBLIC_URL + "/ar.png"
+                            }`}
                             alt="QR Code"
                         />
-                        */}
-
                         <img
                             className="w-[300px] absolute left-full top-64 z-[1]"
                             src={`${process.env.PUBLIC_URL + "/images/plusPatterns.png"}`}
                             alt=""
                         />
                     </motion.div>
-                    <motion.div
+
+                   <motion.div
                         className="w-2/3 sm:w-1/4 ar-experience-section__phone z-10"
                         initial={{ opacity: 0, scale: 1.2 }}
                         animate={isInView ? { opacity: 1, scale: 1 } : {}}
                         transition={{ duration: 0.8, ease: "easeOut" }}
                     >
-                        {/* <PngSequencePlayer
-                            frameCount={301}
-                            path={`${process.env.PUBLIC_URL + "/Media/pngSequencePhone/PhoneAnimation_"}`}
-                            className=""
-                            canvasClasses="w-full"
-                            loadingImage={`${process.env.PUBLIC_URL}/images/ArPhoneImage.png`}
-                        /> */}
+                        <img
+                            src={`${process.env.PUBLIC_URL}/ArPhoneImage.png`}
+                            alt="AR Viewer on Phone"
+                            className="w-full rounded-xl shadow-xl"
+                        />
                     </motion.div>
                 </div>
             </div>
