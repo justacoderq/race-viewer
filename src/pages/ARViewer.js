@@ -67,6 +67,21 @@ export const ARViewer = () => {
 
     return (
         <>
+
+            {/* QR Code Section */}
+            <div className="qr-code-container text-center mt-8">
+                <img
+                    src={`${process.env.PUBLIC_URL}/images/qrcode_justacoderq.github.io.png`}
+                    alt="QR code to race-viewer"
+                    className="mx-auto w-48 h-48"
+                />
+                <p className="mt-4 text-sm text-gray-700">
+                    Scan to open: <a href="https://justacoderq.github.io/race-viewer/" target="_blank" rel="noopener noreferrer">
+                    https://justacoderq.github.io/race-viewer/
+                    </a>
+                </p>
+            </div>
+
             <div className="ar-container">
                 <div className="model-viewer-wrapper">
                     <model-viewer
