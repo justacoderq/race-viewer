@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/race-viewer/static/css/main.6974df3f.css",
+    "main.js": "/race-viewer/static/js/main.d1f5da8d.js",
+    "static/js/453.23e117ad.chunk.js": "/race-viewer/static/js/453.23e117ad.chunk.js",
+    "static/media/bg.png": "/race-viewer/static/media/bg.ddb11df4ffa336e4ee1e.png",
+    "static/media/dataBg.png": "/race-viewer/static/media/dataBg.01cd0445083ae9defe73.png",
+    "index.html": "/race-viewer/index.html",
+    "main.6974df3f.css.map": "/race-viewer/static/css/main.6974df3f.css.map",
+    "main.d1f5da8d.js.map": "/race-viewer/static/js/main.d1f5da8d.js.map",
+    "453.23e117ad.chunk.js.map": "/race-viewer/static/js/453.23e117ad.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6974df3f.css",
+    "static/js/main.d1f5da8d.js"
+  ]
+}
