@@ -1,0 +1,123 @@
+import React from "react";
+
+export const SelectedDriverStats = ({ selectedDriverData, selectedDriverRaceData, year }) => {
+    
+    if (!selectedDriverData || !selectedDriverRaceData) {
+        return <div className="text-center py-16">Loading driver data...</div>;
+    }
+
+    const driverImage = `${process.env.PUBLIC_URL}/images/${year}/drivers/${selectedDriverData?.acronym}.png`;
+    const carImage = `${process.env.PUBLIC_URL}/images/${year}/cars/${selectedDriverRaceData?.Constructor?.constructorId}.png`;
+
+    const handleImageError = (e) => {
+        e.target.src = `${process.env.PUBLIC_URL}/images/fallback.png`; // fallback image
+    };
+
+    return (
+        <div className="mb-32">
+            <div className="flex items-end relative w-[23.6rem] mx-auto">
+                <img
+                    alt="Driver"
+                    src={driverImage}
+                    width={120}
+                    height={120}
+                    onError={handleImageError}
+                />
+                <img
+                    alt="Car"
+                    className="absolute -bottom-16 left-32"
+                    src={carImage}
+                    width={150}
+                    onError={handleImageError}
+                />
+                <div className="-ml-32 w-full">
+                    <h3 className="tracking-xs text-sm uppercase gradient-text-medium -mb-8">
+                        {selectedDriverData?.first_name || "Unknown"}
+                    </h3>
+                    <h3 className="font-display gradient-text-light text-[2rem]">
+                        {selectedDriverData?.last_name || "Driver"}
+                    </h3>
+                    <p className="font-display gradient-text-dark text-[6.4rem] mr-16 leading-none text-right">
+                        {selectedDriverData?.driver_number || "-"}
+                    </p>
+                </div>
+            </div>
+
+            <div className="bg-glow bg-glow-large px-24 pt-24 pb-24 rounded-xlarge">
+                <div className="flex items-start justify-between">
+                    <div>
+                        <div className="uppercase tracking-xs text-xs">
+                            Finished
+                        </div>
+                        <div>
+                            <span className="font-display text-[3.2rem]">
+                                {selectedDriverRaceData?.position || "-"}
+                            </span>
+                            <span className="uppercase tracking-xs text-xs ml-4">
+                                {selectedDriverRaceData?.status === "Finished"
+                                    ? selectedDriverRaceData?.Time?.time || "-"
+                                    : selectedDriverRaceData?.status || "-"}
+                            </span>
+                        </div>
+                    </div>
+                    <div className="text-right">
+                        <div className="uppercase tracking-xs text-xs">
+                            Started
+                        </div>
+                        <div className="font-display text-[3.2rem]">
+                            {selectedDriverRaceData?.grid || "-"}
+                        </div>
+                    </div>
+                </div>
+
+                <div className="divider-glow-dark mt-12 mb-10" />
+
+                <p className="font-display text-center mb-14 ml-24">
+                    fastest lap
+                </p>
+
+                <div className="flex items-center justify-between">
+                    <div>
+                        <div className="uppercase tracking-xs text-xs">
+                            Time
+                        </div>
+                        <div className="font-display">
+                            {selectedDriverRaceData?.FastestLap?.Time?.time || "-"}
+                        </div>
+                    </div>
+                    <div className="text-right">
+                        <div className="uppercase tracking-xs text-xs">Lap</div>
+                        <div className="font-display">
+                            {selectedDriverRaceData?.FastestLap?.lap || "-"}
+                        </div>
+                    </div>
+                </div>
+
+                <div className="flex items-center justify-between mt-16">
+                    <div>
+                        <div className="uppercase tracking-xs text-xs">
+                            avg speed
+                        </div>
+                        <div>
+                            <span className="font-display">
+                                {selectedDriverRaceData?.FastestLap?.AverageSpeed?.speed || "N/A"}
+                            </span>
+                            <span className="uppercase tracking-xs text-xs">
+                                {selectedDriverRaceData?.FastestLap?.AverageSpeed?.units || ""}
+                            </span>
+                        </div>
+                    </div>
+                    <div className="text-right">
+                        <div className="uppercase tracking-xs text-xs">
+                            Rank
+                        </div>
+                        <div>
+                            <span className="font-display">{selectedDriverRaceData?.FastestLap?.rank || "-"}</span> 
+                            <span className="text-xs">/ 20</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
